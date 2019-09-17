@@ -2,9 +2,12 @@
   "name": "skewer-socket",
   "version": "1.0.0",
   "description": "Stream text similarity comparisons via sockets",
-  "main": "dist/server.js",
+  "main": "./dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
+    "start:watch": "nodemon",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/hrc099/skewer-socket#readme",
   "dependencies": {
+    "@types/socket.io": "^2.1.2",
     "express": "^4.17.1",
     "socket.io": "^2.2.0"
   },
@@ -27,6 +31,20 @@
     "eslint-plugin-import": "^2.18.2",
     "nodemon": "^1.19.2",
     "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
     "typescript": "^3.6.3"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "npm start",
+    "ext": "ts"
   }
 }

@@ -1,0 +1,43 @@
+{
+  "defaultSeverity": "error",
+  "jsRules": {},
+  "rules": {
+    "indent": [
+      true,
+      "spaces",
+      2
+    ],
+    "max-line-length": [true, {
+      "limit": 100,
+      "ignore-pattern": "^import |^export {(.*?)}",
+      "check-strings": true,
+      "check-regex": true
+    }],
+    "no-duplicate-variable": true,
+    "no-eval": true,
+    "no-trailing-whitespace": true,
+    "no-var-keyword": true,
+    "one-variable-per-declaration": [
+      true,
+      "ignore-for-loop"
+    ],
+    "ordered-imports": [ true ],
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "space-before-function-paren": [ true ],
+    "trailing-comma": [
+      true,
+      {
+        "singleline": "never",
+        "multiline": "never"
+      }
+    ]
+  },
+  "rulesDirectory": []
+}
