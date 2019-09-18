@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ipsum Comparison Stream</title>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <script>
+    var socket = io();
+    socket.on('text', function response (data) {
+      const resObj = JSON.parse(data)
+      document.querySelector('.jaccard').innerHTML = resObj.jaccard || '...'
+      const columns = document.querySelectorAll('.column')
+      columns[0].innerHTML = resObj.texts[0]
+      columns[1].innerHTML = resObj.texts[1]
+    })
+  </script>
+  <body>
+    <div class="wrapper">
+      <div class="row">
+        <h1>Similarity: <span class="jaccard"></span></h1>
+      </div>
+      <div class="row">
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+    </div>
+  </body>
+</html>
