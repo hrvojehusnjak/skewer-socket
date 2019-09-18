@@ -1,4 +1,30 @@
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io();
-</script>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ipsum Comparison Stream</title>
+    <script type="text/javascript" src="http://localhost:3800/socket.io/socket.io.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"></script>
+  </head>
+  <script>
+    $(function () {
+      var socket = io();
+      console.log('blabla')
+      socket.on('ticker', function response (data) {
+        console.log(data)
+        document.getElementById('ipsum').innerHTML = data
+  
+      });
+      socket.on('blabla', function response (data) {
+        console.log(data)
+      })
+      socket.emit('ticker', 'give lorem');
+    })
+  </script>
+  <body>
+    <div id="ipsum"></div>
+  </body>
+</html>
